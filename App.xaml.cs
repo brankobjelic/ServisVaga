@@ -9,6 +9,7 @@ namespace ServisVaga
     /// </summary>
     public partial class App : Application
     {
+        Database database = new Database();
     }
 
 }
