@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using ServisVaga.DAO;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -9,7 +10,7 @@ namespace ServisVaga
     /// </summary>
     public partial class App : Application
     {
-        Database database = new Database();
+
     }
 
 }
