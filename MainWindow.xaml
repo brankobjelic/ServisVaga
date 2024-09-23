@@ -5,23 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServisVaga"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="750" Width="1200"
         >
-    <Grid>
-        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" x:Name="MerilaDataGrid" VerticalAlignment="Top" >
+  
+        <StackPanel>
+        <Button Content="Unos novog merila" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="Button_Click"/>
+            
+        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Center" x:Name="MerilaDataGrid" VerticalAlignment="Top" CanUserAddRows = "False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Naziv merila" Binding="{Binding Naziv}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Proizvođač" Binding="{Binding Proizvodjac}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Tip" Binding="{Binding Tip}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Serijski broj" Binding="{Binding SerijskiBroj}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Godina proizvodnje" Binding="{Binding GodinaProizvodnje}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Službena oznaka" Binding="{Binding SluzbenaOznaka}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Serijski br" Binding="{Binding SerijskiBroj}"></DataGridTextColumn>
+                <DataGridTextColumn Header="God proiz" Binding="{Binding GodinaProizvodnje}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Služb ozn" Binding="{Binding SluzbenaOznaka}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Opseg merenja" Binding="{Binding OpsegMerenja}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Najmanji podeok" Binding="{Binding NajmanjiPodeok}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Klasa tačnosti" Binding="{Binding KlasaTacnosti}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Imalac merila" Binding="{Binding Imalac}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Akcija"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="497,95,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-    </Grid>
+        </StackPanel>
+
 </Window>
