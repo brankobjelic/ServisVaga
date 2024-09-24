@@ -34,6 +34,8 @@ namespace ServisVaga
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            InsertUpdateMeriloWindow insertUpdateMeriloWindow = new InsertUpdateMeriloWindow();
+            insertUpdateMeriloWindow.ShowDialog();
         }
     }
 }
