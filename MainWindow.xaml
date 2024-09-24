@@ -10,8 +10,8 @@
   
         <StackPanel>
         <Button Content="Unos novog merila" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="Button_Click"/>
-            
-        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Center" x:Name="MerilaDataGrid" VerticalAlignment="Top" CanUserAddRows = "False">
+
+        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,10,10" x:Name="MerilaDataGrid" VerticalAlignment="Top" CanUserAddRows = "False" HeadersVisibility="Column">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Naziv merila" Binding="{Binding Naziv}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Proizvođač" Binding="{Binding Proizvodjac}"></DataGridTextColumn>
