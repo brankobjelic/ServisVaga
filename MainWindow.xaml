@@ -11,7 +11,7 @@
         <StackPanel>
         <Button Content="Unos novog merila" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="Button_Click"/>
 
-        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,10,10" x:Name="MerilaDataGrid" VerticalAlignment="Top" CanUserAddRows = "False" HeadersVisibility="Column">
+        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,10,10" x:Name="MerilaDataGrid" VerticalAlignment="Top" CanUserAddRows = "False" HeadersVisibility="Column" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Naziv merila" Binding="{Binding Naziv}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Proizvođač" Binding="{Binding Proizvodjac}"></DataGridTextColumn>
@@ -23,7 +23,20 @@
                 <DataGridTextColumn Header="Najmanji podeok" Binding="{Binding NajmanjiPodeok}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Klasa tačnosti" Binding="{Binding KlasaTacnosti}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Imalac merila" Binding="{Binding Imalac}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Akcija"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Izmeni" ></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Obriši" Click="OnDeleteButtonClick" CommandParameter="{Binding ElementName=MerilaDataGrid}"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         </StackPanel>
