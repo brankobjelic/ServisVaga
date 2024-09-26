@@ -27,8 +27,7 @@ namespace ServisVaga
         {
             InitializeComponent();
             DAOConnection.CreateDatabaseFile();
-            Merila = MeriloDAO.UcitajMerila();
-            MerilaDataGrid.ItemsSource = Merila;
+            LoadMeriloData();
         }
 
 
@@ -36,6 +35,23 @@ namespace ServisVaga
         {
             InsertUpdateMeriloWindow insertUpdateMeriloWindow = new InsertUpdateMeriloWindow();
             insertUpdateMeriloWindow.ShowDialog();
+            LoadMeriloData();
+
+        }
+
+        private void LoadMeriloData()
+        {
+            Merila = MeriloDAO.UcitajMerila();
+            MerilaDataGrid.ItemsSource = Merila;
+        }
+
+        private void OnDeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            DataGrid datagrid = ((Button)sender).CommandParameter as DataGrid;
+            var selectedRow = datagrid.SelectedItem;
+            Merilo meriloForDeletion = selectedRow as Merilo;
+            MeriloDAO.ObrisiMerilo(meriloForDeletion.Id);
+            LoadMeriloData();
         }
     }
 }

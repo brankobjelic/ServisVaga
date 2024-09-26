@@ -19,6 +19,7 @@ namespace ServisVaga.DAO
             while (reader.Read())
             {
                 Merilo merilo = new Merilo();
+                merilo.Id = (long)reader[0];
                 merilo.Naziv = (string)reader[2];
                 merilo.Proizvodjac = (string)reader[3];
                 merilo.Tip = (string)reader[4];
@@ -39,7 +40,7 @@ namespace ServisVaga.DAO
             return merila;
         }
 
-        public static void UnesiMerilo(Merilo merilo)
+        public static int UnesiMerilo(Merilo merilo)
         {
             int rowsAffected = 0;
             string sql = "INSERT INTO 'main'.'merilo'" +
@@ -49,7 +50,7 @@ namespace ServisVaga.DAO
             SQLiteCommand cmd = new SQLiteCommand("INSERT INTO merilo" +
                 "('imalac', 'naziv', 'proizvodjac', 'tip', 'serijski_broj', 'godina_proizvodnje', 'sluzbena_oznaka', 'opseg merenja', 'najmanji podeok', 'klasa tacnosti') " +
                 "VALUES(@imalac, @naziv, @proizvodjac, @tip, @serijskiBroj, @godinaProizvodnje, @sluzbenaOznaka, @opsegMerenja, @najmanjiPodeok, @klasaTacnosti);", conn);
-            cmd.Parameters.Add(new SQLiteParameter("imalac", merilo.Imalac));
+            cmd.Parameters.Add(new SQLiteParameter("imalac", merilo.Imalac.Id));
             cmd.Parameters.Add(new SQLiteParameter("naziv", merilo.Naziv));
             cmd.Parameters.Add(new SQLiteParameter("proizvodjac", merilo.Proizvodjac));
             cmd.Parameters.Add(new SQLiteParameter("tip", merilo.Tip));
@@ -60,6 +61,15 @@ namespace ServisVaga.DAO
             cmd.Parameters.Add(new SQLiteParameter("najmanjiPodeok", merilo.NajmanjiPodeok));
             cmd.Parameters.Add(new SQLiteParameter("klasaTacnosti", merilo.KlasaTacnosti));
             rowsAffected = cmd.ExecuteNonQuery();
+            return rowsAffected;
+        }
+
+        public static void ObrisiMerilo(long id)
+        {
+            SQLiteConnection conn = DAOConnection.GetConnection();
+            string query = "DELETE from merilo where id=" + id;
+            SQLiteCommand cmd = new SQLiteCommand(query, conn);
+            cmd.ExecuteNonQuery();
         }
 
     }

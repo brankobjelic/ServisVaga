@@ -9,7 +9,7 @@ namespace ServisVaga
     public class Merilo
 
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public Klijent Imalac { get; set; }
         public string Naziv { get; set; }
         public string Proizvodjac { get; set; }
