@@ -52,7 +52,11 @@ namespace ServisVaga
                 NajmanjiPodeok = najmanjiPodeokTextBox.Text,
                 KlasaTacnosti = klasaTacnostiTextBox.Text
             };
-            MeriloDAO.UnesiMerilo(newMerilo);
+            if(MeriloDAO.UnesiMerilo(newMerilo) == 1)
+            {
+                MessageBox.Show("Uspešan unos merila");
+                Close();
+            }
 
         }
 
