@@ -5,46 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServisVaga"
         mc:Ignorable="d"
-        Title="InsertUpdateMeriloWindow" Height="450" Width="800">
+        Title="InsertUpdateMeriloWindow" Height="450" Width="600">
     <Grid>
-        <StackPanel>
+        <StackPanel Margin="20,20,20,20">
             <TextBlock>Imalac merila</TextBlock>
             <ComboBox Name="klijentiComboBox"
-            Text="Izaberite imaoca"
-            IsEditable="true"
-            IsReadOnly="true"/>
-            <TextBlock>Dokument izdao</TextBlock>
-            <TextBox x:Name="TBDokumentIzdao" IsReadOnly="True" Background="#eee"/>
+                Text="Izaberite imaoca"
+                IsEditable="true"
+                IsReadOnly="true"
+                    />
+            <TextBlock>Naziv merila</TextBlock>
+            <TextBox x:Name="nazivMerilaTextBox" Background="#eee"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0" Margin="0,0,5,0">
-                    <TextBlock>Datum izdavanja</TextBlock>
-                    <TextBox x:Name="TBDatumIzdavanja" IsReadOnly="True" Background="#eee"/>
-                </StackPanel>
-                <StackPanel Grid.Column="1" Margin="5,0,0,0">
-                    <TextBlock>Važi do</TextBlock>
-                    <TextBox x:Name="TBVaziDo" IsReadOnly="True" Background="#eee"/>
-                </StackPanel>
-            </Grid>
-            <TextBlock>Zabrana otuđenja</TextBlock>
-            <TextBox x:Name="TBZabranaOtudjenja"  IsReadOnly="True" Background="#eee"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0" Margin="0,0,5,0">
-                    <TextBlock>Broj dokumenta</TextBlock>
-                    <TextBox x:Name="TBBrojDokumenta" IsReadOnly="True" Background="#eee"/>
+                    <TextBlock>Proizvođač</TextBlock>
+                    <TextBox x:Name="proizvodjacTextBox" Background="#eee"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                    <TextBlock>Tip</TextBlock>
+                    <TextBox x:Name="tipTextBox" Background="#eee"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Margin="5,0,0,0">
                     <TextBlock>Serijski broj</TextBlock>
-                    <TextBox x:Name="TBSerijskiBroj" IsReadOnly="True" Background="#eee"/>
+                    <TextBox x:Name="serijskiBrojTextBox" Background="#eee"/>
+                </StackPanel>
+                <StackPanel Grid.Column="3" Margin="5,0,0,0">
+                    <TextBlock>Godina proizvodnje</TextBlock>
+                    <ComboBox Name="godinaProizvodnjeComboBox"
+                        Text="Izaberite godinu"
+                        IsEditable="true"
+                        IsReadOnly="true"
+                    />
                 </StackPanel>
             </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="0,0,5,0">
+                    <TextBlock>Službena oznaka</TextBlock>
+                    <TextBox x:Name="sluzbenaOznakaTextBox" Background="#eee"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                    <TextBlock>Opseg merenja</TextBlock>
+                    <TextBox x:Name="opsegMerenjaTextBox" Background="#eee"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Margin="5,0,0,0">
+                    <TextBlock>Najmanji podeok</TextBlock>
+                    <TextBox x:Name="najmanjiPodeokTextBox" Background="#eee"/>
+                </StackPanel>
+                <StackPanel Grid.Column="3" Margin="5,0,0,0">
+                    <TextBlock>Klasa tačnosti</TextBlock>
+                    <TextBox x:Name="klasaTacnostiTextBox" Background="#eee"/>
+                </StackPanel>
+            </Grid>
+            <Button x:Name="EnterMeriloData" Click="EnterMeriloData_Click" Content="Unesi" Margin="0,15,5,0" HorizontalAlignment="Left"></Button>
         </StackPanel>
     </Grid>
 </Window>
