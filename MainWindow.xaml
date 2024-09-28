@@ -33,7 +33,7 @@
                 <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Obriši" Click="OnDeleteButtonClick" CommandParameter="{Binding ElementName=MerilaDataGrid}"></Button>
+                            <Button Content="Obriši" Click="DeleteButton_Click" CommandParameter="{Binding ElementName=MerilaDataGrid}"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
