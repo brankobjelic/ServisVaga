@@ -26,7 +26,7 @@
                 <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Izmeni" ></Button>
+                            <Button Content="Izmeni" Click="EditButton_Click" CommandParameter="{Binding ElementName=MerilaDataGrid}"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

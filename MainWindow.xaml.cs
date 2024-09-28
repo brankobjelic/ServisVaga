@@ -60,5 +60,14 @@ namespace ServisVaga
             }
             LoadMeriloData();
         }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataGrid datagrid = ((Button)sender).CommandParameter as DataGrid;
+            var selectedRow = datagrid.SelectedItem;
+            Merilo meriloForEdit = selectedRow as Merilo;
+            InsertUpdateMeriloWindow insertUpdateMeriloWindow = new InsertUpdateMeriloWindow(meriloForEdit);
+            insertUpdateMeriloWindow.ShowDialog();
+        }
     }
 }
