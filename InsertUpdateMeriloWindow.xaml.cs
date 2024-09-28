@@ -57,6 +57,10 @@ namespace ServisVaga
                 MessageBox.Show("Uspešan unos merila");
                 Close();
             }
+            else
+            {
+                MessageBox.Show("Došlo je do greške");
+            }
 
         }
 
