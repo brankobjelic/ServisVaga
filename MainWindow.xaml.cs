@@ -45,12 +45,19 @@ namespace ServisVaga
             MerilaDataGrid.ItemsSource = Merila;
         }
 
-        private void OnDeleteButtonClick(object sender, RoutedEventArgs e)
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             DataGrid datagrid = ((Button)sender).CommandParameter as DataGrid;
             var selectedRow = datagrid.SelectedItem;
             Merilo meriloForDeletion = selectedRow as Merilo;
-            MeriloDAO.ObrisiMerilo(meriloForDeletion.Id);
+            if(MeriloDAO.ObrisiMerilo(meriloForDeletion.Id) == 1)
+            {
+                MessageBox.Show("Uspešno brisanje merila");
+            }
+            else
+            {
+                MessageBox.Show("Došlo je do greške");
+            }
             LoadMeriloData();
         }
     }

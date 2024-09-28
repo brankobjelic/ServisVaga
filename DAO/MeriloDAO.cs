@@ -64,12 +64,13 @@ namespace ServisVaga.DAO
             return rowsAffected;
         }
 
-        public static void ObrisiMerilo(long id)
+        public static int ObrisiMerilo(long id)
         {
             SQLiteConnection conn = DAOConnection.GetConnection();
             string query = "DELETE from merilo where id=" + id;
             SQLiteCommand cmd = new SQLiteCommand(query, conn);
-            cmd.ExecuteNonQuery();
+            int rowsAffected = cmd.ExecuteNonQuery();
+            return rowsAffected;
         }
 
     }
