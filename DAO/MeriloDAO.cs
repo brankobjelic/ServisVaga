@@ -30,6 +30,7 @@ namespace ServisVaga.DAO
                 merilo.NajmanjiPodeok = (string)reader[9];
                 merilo.KlasaTacnosti = (string)reader[10];
                 merilo.Imalac = new Klijent();
+                merilo.Imalac.Id = (int)(long)reader[11];
                 merilo.Imalac.Naziv = (string)reader[12];
                 merilo.Imalac.Mesto = (string)reader[13];
                 merilo.Imalac.UlicaIBroj = (string)reader[14];
@@ -61,6 +62,7 @@ namespace ServisVaga.DAO
             cmd.Parameters.Add(new SQLiteParameter("najmanjiPodeok", merilo.NajmanjiPodeok));
             cmd.Parameters.Add(new SQLiteParameter("klasaTacnosti", merilo.KlasaTacnosti));
             rowsAffected = cmd.ExecuteNonQuery();
+            conn.Close();
             return rowsAffected;
         }
 
@@ -70,6 +72,7 @@ namespace ServisVaga.DAO
             string query = "DELETE from merilo where id=" + id;
             SQLiteCommand cmd = new SQLiteCommand(query, conn);
             int rowsAffected = cmd.ExecuteNonQuery();
+            conn.Close();
             return rowsAffected;
         }
 
