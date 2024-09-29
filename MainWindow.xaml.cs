@@ -68,6 +68,7 @@ namespace ServisVaga
             Merilo meriloForEdit = selectedRow as Merilo;
             InsertUpdateMeriloWindow insertUpdateMeriloWindow = new InsertUpdateMeriloWindow(meriloForEdit);
             insertUpdateMeriloWindow.ShowDialog();
+            LoadMeriloData();
         }
     }
 }
