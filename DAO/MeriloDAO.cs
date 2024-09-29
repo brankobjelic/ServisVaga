@@ -44,9 +44,6 @@ namespace ServisVaga.DAO
         public static int UnesiMerilo(Merilo merilo)
         {
             int rowsAffected = 0;
-            string sql = "INSERT INTO 'main'.'merilo'" +
-                "('imalac', 'naziv', 'proizvodjac', 'tip', 'serijski_broj', 'godina_proizvodnje', 'sluzbena_oznaka', 'opseg merenja', 'najmanji podeok', 'klasa tacnosti') " +
-                "VALUES(@imalac, '@naziv, @proizvodjac, @tip, @serijskiBroj, @godinaProizvodnje, @sluzbenaOznaka, @opsegMerenja, @najmanjiPodeok, @klasaTacnosti)";
             SQLiteConnection conn = DAOConnection.GetConnection();
             SQLiteCommand cmd = new SQLiteCommand("INSERT INTO merilo" +
                 "('imalac', 'naziv', 'proizvodjac', 'tip', 'serijski_broj', 'godina_proizvodnje', 'sluzbena_oznaka', 'opseg merenja', 'najmanji podeok', 'klasa tacnosti') " +
@@ -61,6 +58,27 @@ namespace ServisVaga.DAO
             cmd.Parameters.Add(new SQLiteParameter("opsegMerenja", merilo.OpsegMerenja));
             cmd.Parameters.Add(new SQLiteParameter("najmanjiPodeok", merilo.NajmanjiPodeok));
             cmd.Parameters.Add(new SQLiteParameter("klasaTacnosti", merilo.KlasaTacnosti));
+            rowsAffected = cmd.ExecuteNonQuery();
+            conn.Close();
+            return rowsAffected;
+        }
+
+        public static int AzurirajMerilo(Merilo merilo)
+        {
+            int rowsAffected = 0;
+            SQLiteConnection conn = DAOConnection.GetConnection();
+            SQLiteCommand cmd = new SQLiteCommand("UPDATE merilo SET 'imalac' = @imalac, 'naziv' = @naziv, 'proizvodjac' = @proizvodjac, 'tip' = @tip, 'serijski_broj' = @serijskiBroj, 'godina_proizvodnje' = @godinaProizvodnje, 'sluzbena_oznaka' = @sluzbenaOznaka, 'opseg merenja' = @opsegMerenja, 'najmanji podeok' = @najmanjiPodeok, 'klasa tacnosti' = @klasaTacnosti  WHERE ID = @id;", conn);
+            cmd.Parameters.Add(new SQLiteParameter("imalac", merilo.Imalac.Id));
+            cmd.Parameters.Add(new SQLiteParameter("naziv", merilo.Naziv));
+            cmd.Parameters.Add(new SQLiteParameter("proizvodjac", merilo.Proizvodjac));
+            cmd.Parameters.Add(new SQLiteParameter("tip", merilo.Tip));
+            cmd.Parameters.Add(new SQLiteParameter("serijskiBroj", merilo.SerijskiBroj));
+            cmd.Parameters.Add(new SQLiteParameter("godinaProizvodnje", merilo.GodinaProizvodnje));
+            cmd.Parameters.Add(new SQLiteParameter("sluzbenaOznaka", merilo.SluzbenaOznaka));
+            cmd.Parameters.Add(new SQLiteParameter("opsegMerenja", merilo.OpsegMerenja));
+            cmd.Parameters.Add(new SQLiteParameter("najmanjiPodeok", merilo.NajmanjiPodeok));
+            cmd.Parameters.Add(new SQLiteParameter("klasaTacnosti", merilo.KlasaTacnosti));
+            cmd.Parameters.Add(new SQLiteParameter("id", merilo.Id));
             rowsAffected = cmd.ExecuteNonQuery();
             conn.Close();
             return rowsAffected;
