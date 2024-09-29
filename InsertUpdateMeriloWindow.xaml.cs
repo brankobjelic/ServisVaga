@@ -25,6 +25,7 @@ namespace ServisVaga
         public List<long> Years { get; set; } = new();
         int currentYear = DateTime.Now.Year;
         Merilo MeriloForEdit { get; set; }
+        bool isEdit = false;
 
         public InsertUpdateMeriloWindow()
         {
@@ -41,6 +42,7 @@ namespace ServisVaga
         public InsertUpdateMeriloWindow(Merilo meriloForEdit)
         {
             InitializeComponent();
+            isEdit = true;
             MeriloForEdit = meriloForEdit;
             for (long i = currentYear; i >= 1900; i--)
             {
@@ -54,27 +56,43 @@ namespace ServisVaga
 
         private void EnterMeriloData_Click(object sender, RoutedEventArgs e)
         {
-            Merilo newMerilo = new Merilo()
+            Merilo merilo = new Merilo()
             {
                 Imalac = (Klijent)klijentiComboBox.SelectedValue,
                 Naziv = nazivMerilaTextBox.Text,
                 Proizvodjac = proizvodjacTextBox.Text,
                 Tip = tipTextBox.Text,
                 SerijskiBroj = serijskiBrojTextBox.Text,
-                GodinaProizvodnje = (int)godinaProizvodnjeComboBox.SelectedValue,
+                GodinaProizvodnje = (long)godinaProizvodnjeComboBox.SelectedValue,
                 SluzbenaOznaka = sluzbenaOznakaTextBox.Text,
                 OpsegMerenja = opsegMerenjaTextBox.Text,
                 NajmanjiPodeok = najmanjiPodeokTextBox.Text,
                 KlasaTacnosti = klasaTacnostiTextBox.Text
             };
-            if(MeriloDAO.UnesiMerilo(newMerilo) == 1)
+            if (isEdit)
             {
-                MessageBox.Show("Uspešan unos merila");
-                Close();
+                merilo.Id = MeriloForEdit.Id;
+                if (MeriloDAO.AzurirajMerilo(merilo) == 1)
+                {
+                    MessageBox.Show("Uspešno ažuriranje merila");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Došlo je do greške");
+                }
             }
             else
             {
-                MessageBox.Show("Došlo je do greške");
+                if(MeriloDAO.UnesiMerilo(merilo) == 1)
+                {
+                    MessageBox.Show("Uspešan unos merila");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Došlo je do greške");
+                }
             }
 
         }
