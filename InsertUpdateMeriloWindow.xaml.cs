@@ -37,6 +37,7 @@ namespace ServisVaga
             godinaProizvodnjeComboBox.ItemsSource = Years;
             Klijenti = KlijentDAO.UcitajKlijente();
             klijentiComboBox.ItemsSource = Klijenti;
+            EnterMeriloDataAsNew.Visibility = Visibility.Hidden;
         }
 
         public InsertUpdateMeriloWindow(Merilo meriloForEdit)
@@ -94,6 +95,11 @@ namespace ServisVaga
                     MessageBox.Show("Došlo je do greške");
                 }
             }
+
+        }
+
+        private void EnterMeriloDataAsNew_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 

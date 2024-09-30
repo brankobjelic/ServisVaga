@@ -69,6 +69,7 @@
                 </StackPanel>
             </Grid>
             <Button x:Name="EnterMeriloData" Click="EnterMeriloData_Click" Content="Unesi" Margin="0,15,5,0" HorizontalAlignment="Left"></Button>
+            <Button x:Name="EnterMeriloDataAsNew" Click="EnterMeriloDataAsNew_Click" Content="Unesi kao novo" Margin="0,15,5,0" HorizontalAlignment="Left"></Button>
         </StackPanel>
     </Grid>
 </Window>
