@@ -48,9 +48,8 @@ namespace ServisVaga
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             DataGrid datagrid = ((Button)sender).CommandParameter as DataGrid;
-            var selectedRow = datagrid.SelectedItem;
-            Merilo meriloForDeletion = selectedRow as Merilo;
-            if(MeriloDAO.ObrisiMerilo(meriloForDeletion.Id) == 1)
+            List<Merilo> selectedItems = datagrid.SelectedItems.Cast<Merilo>().ToList();
+            if (MeriloDAO.ObrisiMerila(selectedItems) >= 1)
             {
                 MessageBox.Show("Uspešno brisanje merila");
             }

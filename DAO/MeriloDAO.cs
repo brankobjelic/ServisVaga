@@ -84,14 +84,30 @@ namespace ServisVaga.DAO
             return rowsAffected;
         }
 
-        public static int ObrisiMerilo(long id)
+        public static int ObrisiMerila(List<Merilo> merila)
         {
             SQLiteConnection conn = DAOConnection.GetConnection();
-            string query = "DELETE from merilo where id=" + id;
+            string idsForDeletionString = GetIdsForDeletionString(merila);
+            string query = "DELETE from merilo where id in (" + idsForDeletionString + ")";
             SQLiteCommand cmd = new SQLiteCommand(query, conn);
             int rowsAffected = cmd.ExecuteNonQuery();
             conn.Close();
             return rowsAffected;
+        }
+
+        private static string GetIdsForDeletionString(List<Merilo> merila)
+        {
+            StringBuilder sb = new StringBuilder();
+            Merilo last = merila.Last();
+            foreach (Merilo merilo in merila)
+            {
+                sb.Append(merilo.Id);
+                if (!merilo.Equals(last))
+                {
+                    sb.Append(", ");
+                }
+            }
+            return sb.ToString();
         }
 
     }
