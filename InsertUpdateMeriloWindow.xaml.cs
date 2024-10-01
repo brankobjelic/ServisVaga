@@ -100,7 +100,8 @@ namespace ServisVaga
 
         private void EnterMeriloDataAsNew_Click(object sender, RoutedEventArgs e)
         {
-
+            isEdit = false;
+            EnterMeriloData_Click(sender, e);
         }
 
         private void FillMeriloFields()
