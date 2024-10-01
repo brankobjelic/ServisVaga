@@ -12,5 +12,6 @@ namespace ServisVaga
         public Merilo Merilo { get; set; }
         public string VaznostPregleda { get; set; }
         public string Tekst { get; set; }
+        public DateOnly DatumIzdavanja { get; set; }
     }
 }
