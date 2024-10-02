@@ -69,5 +69,10 @@ namespace ServisVaga
             insertUpdateMeriloWindow.ShowDialog();
             LoadMeriloData();
         }
+
+        private void CreateUverenjeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
