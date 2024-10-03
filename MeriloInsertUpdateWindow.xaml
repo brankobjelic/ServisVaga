@@ -1,11 +1,11 @@
-﻿<Window x:Class="ServisVaga.InsertUpdateMeriloWindow"
+﻿<Window x:Class="ServisVaga.MeriloInsertUpdateWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServisVaga"
         mc:Ignorable="d"
-        Title="InsertUpdateMeriloWindow" Height="450" Width="600">
+        Title="MeriloInsertUpdateWindow" Height="450" Width="600">
     <Grid>
         <StackPanel Margin="20,20,20,20">
             <TextBlock>Imalac merila</TextBlock>

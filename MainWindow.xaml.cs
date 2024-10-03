@@ -33,7 +33,7 @@ namespace ServisVaga
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            InsertUpdateMeriloWindow insertUpdateMeriloWindow = new InsertUpdateMeriloWindow();
+            MeriloInsertUpdateWindow insertUpdateMeriloWindow = new MeriloInsertUpdateWindow();
             insertUpdateMeriloWindow.ShowDialog();
             LoadMeriloData();
 
@@ -65,14 +65,15 @@ namespace ServisVaga
             DataGrid datagrid = ((Button)sender).CommandParameter as DataGrid;
             var selectedRow = datagrid.SelectedItem;
             Merilo meriloForEdit = selectedRow as Merilo;
-            InsertUpdateMeriloWindow insertUpdateMeriloWindow = new InsertUpdateMeriloWindow(meriloForEdit);
+            MeriloInsertUpdateWindow insertUpdateMeriloWindow = new MeriloInsertUpdateWindow(meriloForEdit);
             insertUpdateMeriloWindow.ShowDialog();
             LoadMeriloData();
         }
 
         private void CreateUverenjeButton_Click(object sender, RoutedEventArgs e)
         {
-
+            UverenjeInsertUpdateWindow uverenjeInsertUpdateWindow = new UverenjeInsertUpdateWindow();
+            uverenjeInsertUpdateWindow.ShowDialog();
         }
     }
 }

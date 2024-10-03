@@ -17,9 +17,9 @@ using System.Windows.Shapes;
 namespace ServisVaga
 {
     /// <summary>
-    /// Interaction logic for InsertUpdateMeriloWindow.xaml
+    /// Interaction logic for MeriloInsertUpdateWindow.xaml
     /// </summary>
-    public partial class InsertUpdateMeriloWindow : Window
+    public partial class MeriloInsertUpdateWindow : Window
     {
         public List<Klijent> Klijenti { get; set; } = new();
         public List<long> Years { get; set; } = new();
@@ -27,7 +27,7 @@ namespace ServisVaga
         Merilo MeriloForEdit { get; set; }
         bool isEdit = false;
 
-        public InsertUpdateMeriloWindow()
+        public MeriloInsertUpdateWindow()
         {
             InitializeComponent();
             for(int i = currentYear; i >= 1900; i--)
@@ -40,7 +40,7 @@ namespace ServisVaga
             EnterMeriloDataAsNew.Visibility = Visibility.Hidden;
         }
 
-        public InsertUpdateMeriloWindow(Merilo meriloForEdit)
+        public MeriloInsertUpdateWindow(Merilo meriloForEdit)
         {
             InitializeComponent();
             isEdit = true;
